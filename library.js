@@ -1,55 +1,47 @@
 const library = {
-       tracks: { t01: { id: "t01",
-         name: "Code Monkey",
-         artist: "Jonathan Coulton",
-         album: "Thing a Week Three" },
-       t02: { id: "t02",
-         name: "Model View Controller",
-         artist: "James Dempsey",
-         album: "WWDC 2003"},
-       t03: { id: "t03",
-         name: "Four Thirty-Three",
-         artist: "John Cage",
-         album: "Woodstock 1952"}
-       },
-       playlists: { p01: { id: "p01",
-         name: "Coding Music",
-         tracks: ["t01", "t02"]
-       },
-       p02: { id: "p02",
-         name: "Other Playlist",
-         tracks: ["t03"]
-       }
-       }
-     };
+  tracks: { 
+       t01: { id: "t01",
+       name: "Code Monkey",
+       artist: "Jonathan Coulton",
+       album: "Thing a Week Three" },
+  t02: { id: "t02",
+       name: "Model View Controller",
+       artist: "James Dempsey",
+       album: "WWDC 2003"},
+  t03: { id: "t03",
+       name: "Four Thirty-Three",
+       artist: "John Cage",
+       album: "Woodstock 1952"}
+  },
+  playlists: { p01: { id: "p01",
+    name: "Coding Music",
+    tracks: ["t01", "t02"]
+  },
+  p02: { id: "p02",
+    name: "Other Playlist",
+    tracks: ["t03"]
+  }
+  },
+  printPlaylists: function () {
+    let tempObj = this.playlists;
+    for (const key in tempObj) {
+      console.log(`${key}: ${tempObj[key].name} - ${tempObj[key].tracks.length} tracks`);
+      }  
+  },
+
+printTracks: function() {
+    let tempObj = this.tracks;
+    for (const key in tempObj) {
+      console.log(`${key}: ${tempObj[key].name} by ${tempObj[key].artist} (${tempObj[key].album})`);
+    }
+
+  }
+     
+};
           
      /////////////////////////////
      // FUNCTIONS TO IMPLEMENT:
      /////////////////////////////
-          
-     // prints a list of all playlists, in the form:
-     // p01: Coding Music - 2 tracks
-     // p02: Other Playlist - 1 tracks
-     const printPlaylists = function() {
-       let tempObj = library.playlists;
-       for (const key in tempObj) {
-         console.log(`${key}: ${tempObj[key].name} - ${tempObj[key].tracks.length} tracks`);
-       }
-     };
-          
-          
-     // prints a list of all tracks, using the following format:
-     // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
-     // t02: Model View Controller by James Dempsey (WWDC 2003)
-     // t03: Four Thirty-Three by John Cage (Woodstock 1952)
-     const printTracks = function() {
-       let tempObj = library.tracks;
-       for (const key in tempObj) {
-         console.log(`${key}: ${tempObj[key].name} by ${tempObj[key].artist} (${tempObj[key].album})`);
-       }
-          
-     };
-          
           
      // prints a list of tracks for a given playlist, using the following format:
      // p01: Coding Music - 2 tracks
@@ -111,9 +103,9 @@ const library = {
           
      };
           
-     printPlaylists();
-     printTracks();
-     console.log(library.playlists.p01);
-     printPlaylist(library.playlists.p01.id);
-     addTrackToPlaylist("temp","p01");
+console.log(library.playlists.p01);
+printPlaylist(library.playlists.p01.id);
+addTrackToPlaylist("temp","p01");
+library.printPlaylists();
+library.printTracks();
           
